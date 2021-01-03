@@ -2,15 +2,15 @@
   <header class="header">
     <nav class="header-nav">
       <div class="nav-brand">
-        <a href="https://qszone.com">奇思站 - qszone.com</a>
+        <a href="http://qszone.com">奇思站 - qszone.com</a>
       </div>
       <div class="nav-menu">
         <ul>
           <li class="menu-item">
-            <a href="https://qszone.com/blog">奇思笔记</a>
+            <a href="http://blog.qszone.com">奇思笔记</a>
           </li>
           <li class="menu-item">
-            <a href="https://qszone.com/blog/#/article/关于本站">关于本站</a>
+            <a href="https://blog.qszone.com/#/article/关于本站">关于本站</a>
           </li>
         </ul>
       </div>

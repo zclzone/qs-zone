@@ -41,6 +41,7 @@ import {
   navDirection,
   isShowHeader,
   isShowFooter,
+  title,
 } from '@/settings'
 export default {
   name: 'layout',
@@ -50,6 +51,7 @@ export default {
       navDirection,
       isShowHeader,
       isShowFooter,
+      title,
       isMenuActive: false,
       menuList: [
         { name: '首页', link: '/' },
@@ -65,11 +67,6 @@ export default {
     AppHeader,
     AppMain,
     AppFooter,
-  },
-  computed: {
-    title() {
-      return this.$route.meta.title
-    },
   },
 }
 </script>

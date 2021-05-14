@@ -26,7 +26,7 @@ module.exports = {
           /* 阿里字体图标 */
           //@import '//at.alicdn.com/t/font_1186631_dnfzsu5n7yp.css';
           /* 字体 */
-          @import '//fonts.googleapis.com/css?family=Encode+Sans+Condensed:400,600';
+          // @import '//fonts.googleapis.com/css?family=Encode+Sans+Condensed:400,600';
           /* 重置样式 */
           @import '@/styles/reset.scss';
           /* 通用样式 */

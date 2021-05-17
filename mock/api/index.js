@@ -1,7 +1,7 @@
 const msg = "Hello, QS ZONE!"
 export default [
   {
-    url: '/test',
+    url: '/',
     type: 'get',
     response: config => {
       return {

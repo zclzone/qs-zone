@@ -1,7 +1,7 @@
 <template>
   <div
     class="layout"
-    @click="isMenuActive = false"
+    @click="handleCloseMenu"
     :class="{ [navDirection]: true, 'menu-active': isMenuActive }"
   >
     <!-- 侧边栏菜单 -->
@@ -14,7 +14,7 @@
       <!-- 汉堡包触发器 -->
       <hamburger
         v-if="isShowMenu"
-        @click.stop.native="isMenuActive = !isMenuActive"
+        @click.stop.native="handleTaggleMenu"
         :class="{ [navDirection]: true, active: isMenuActive }"
       />
 
@@ -36,23 +36,13 @@ import Hamburger from '@/components/hamburger'
 import AppHeader from './components/header'
 import AppMain from './components/main'
 import AppFooter from './components/footer'
-import {
-  isShowMenu,
-  navDirection,
-  isShowHeader,
-  isShowFooter,
-  title,
-} from '@/settings'
+import { title } from '@/settings'
+import { mapState } from 'vuex'
 export default {
   name: 'layout',
   data() {
     return {
-      isShowMenu,
-      navDirection,
-      isShowHeader,
-      isShowFooter,
       title,
-      isMenuActive: false,
       menuList: [
         { name: '首页', link: '/' },
         { name: '奇思笔记', link: '/blog' },
@@ -67,6 +57,23 @@ export default {
     AppHeader,
     AppMain,
     AppFooter,
+  },
+  methods: {
+    handleTaggleMenu() {
+      this.$store.dispatch('app/taggleMenu')
+    },
+    handleCloseMenu() {
+      this.$store.dispatch('app/closeMenu')
+    },
+  },
+  computed: {
+    ...mapState({
+      isMenuActive: state => state.app.isMenuActive,
+      isShowMenu: state => state.settings.isShowMenu,
+      navDirection: state => state.settings.navDirection,
+      isShowHeader: state => state.settings.isShowHeader,
+      isShowFooter: state => state.settings.isShowFooter,
+    }),
   },
 }
 </script>

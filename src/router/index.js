@@ -48,7 +48,7 @@ const routes = [
         path: '',
         component: () => import('@/views/me'),
         meta: {
-          title: 'About Me',
+          title: '关于我',
           keepAlive: true
         }
       }

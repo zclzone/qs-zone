@@ -1,13 +1,9 @@
 <template>
-  <header class="header">
+  <header class="header" v-if="title">
     <h1 class="brand">
-      <router-link to="/" class="title">{{ brand }}</router-link>
-      <span v-if="subtitle" style="padding: 0 15px"> · </span>
-      <transition name="breadcrumb">
-        <span v-if="subtitle" class="sub-title" :key="$route.path">
-          {{ subtitle }}
-        </span>
-      </transition>
+      <router-link @click.stop :to="$route.path" class="title">{{
+        title
+      }}</router-link>
     </h1>
   </header>
 </template>
@@ -21,8 +17,7 @@ export default {
     },
   },
   computed: {
-    subtitle() {
-      if (this.$route.path === '/index') return ''
+    title() {
       return (this.$route.meta && this.$route.meta.title) || ''
     },
   },
@@ -40,18 +35,13 @@ export default {
   justify-content: space-between;
   align-items: center;
   .brand {
-    font-size: 26px;
+    font-size: 22px;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     color: #95a5aa;
 
     .title {
-      font-size: 22px;
-      color: #2e4c59;
-      font-weight: normal;
-    }
-    .sub-title {
       color: #2e4c59;
     }
   }

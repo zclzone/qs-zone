@@ -2,10 +2,10 @@
   <ul class="menu">
     <li v-for="(item, index) in menuList" :key="index">
       <router-link v-if="!item.isExternal" :to="item.link">
-        {{ item.name }}
+        {{ item.title }}
       </router-link>
       <!-- 外链 -->
-      <a v-else :href="item.link" target="_blank">{{ item.name }}</a>
+      <a v-else :href="item.link" target="_blank">{{ item.title }}</a>
     </li>
 
     <li class="last">
@@ -16,18 +16,31 @@
 </template>
 
 <script>
+const externalLinks = [
+  { title: 'external', link: 'http://me.qszone.com', isExternal: true },
+]
 export default {
-  props: {
-    menuList: {
-      type: Array,
-      default() {
-        return [
-          { name: 'Home', link: '/' },
-          { name: 'Blog', link: 'http://blog.qszone.com', isExternal: true },
-          { name: 'About', link: 'http://www.qszone.com', isExternal: true },
-          { name: 'Contact', link: 'http://me.qszone.com', isExternal: true },
-        ]
-      },
+  methods: {
+    generateMenuList(menuList, routes, parentPath = '') {
+      routes.forEach(item => {
+        if (item.meta && item.meta.title) {
+          menuList.push({
+            link: parentPath + item.path,
+            title: item.meta.title,
+          })
+        }
+        if (item.children && item.children.length) {
+          this.generateMenuList(menuList, item.children, parentPath + item.path)
+        }
+      })
+      return menuList
+    },
+  },
+  computed: {
+    menuList() {
+      let menuList = []
+      this.generateMenuList(menuList, this.$router.options.routes)
+      return menuList.concat(externalLinks)
     },
   },
 }

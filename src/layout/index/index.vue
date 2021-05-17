@@ -87,6 +87,14 @@ export default {
     height: 100%;
     padding: 20px 0;
     background: #2e4c59;
+    z-index: 99;
+    @media screen and (max-width: 992px) {
+      & {
+        position: absolute;
+        left: 0;
+        opacity: 0.9;
+      }
+    }
   }
   #content {
     flex: 1;
@@ -98,6 +106,7 @@ export default {
     height: 100%;
     .hamburger {
       position: absolute;
+      z-index: 100;
       top: 15px;
       &.left {
         left: 15px;
@@ -122,6 +131,11 @@ export default {
   &.menu-active {
     #side-menu {
       width: 200px;
+    }
+    #content {
+      .hamburger {
+        opacity: 0.5;
+      }
     }
     &.left #content {
       border-top-left-radius: 30px;

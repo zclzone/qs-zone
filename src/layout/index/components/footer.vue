@@ -11,11 +11,12 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
+@import '~@/styles/variables';
 .footer {
   width: 100%;
   height: 88px;
   padding: 10px 0;
-  background-color: #e5e5e5;
+  background-color: $bg-color;
 
   display: flex;
   flex-direction: column;
@@ -23,12 +24,12 @@ export default {}
   align-items: center;
   p {
     font-size: 14px;
-    color: #2e4c59;
+    color: $secondary-color;
     a {
-      color: #333;
+      color: $main-color;
       transition: color 0.3s;
       &:hover {
-        color: #95a5aa;
+        color: $light-color;
         text-decoration: underline;
       }
     }

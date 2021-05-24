@@ -296,6 +296,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~@/styles/variables';
 .view {
   height: 100%;
 
@@ -307,9 +308,9 @@ export default {
     padding-right: 20px;
     text-align: right;
     line-height: 35px;
-    color: #ccc;
+    color: $light-color;
     a {
-      color: #316c72;
+      color: $main-color;
     }
   }
   @media screen and (max-width: 760px) {
@@ -324,13 +325,13 @@ export default {
   .content {
     width: 100%;
     max-width: 1024px;
-    background-color: #fff;
+    background-color: $front-color;
     margin: 0 auto;
     border-radius: 5px;
     .content-hd {
       width: 100%;
-      background-color: #316c72;
-      color: #fff;
+      background-color: $main-color;
+      color: $front-color;
       padding: 30px 50px;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
@@ -340,7 +341,7 @@ export default {
         padding-bottom: 10px;
         margin-bottom: 20px;
         justify-content: space-between;
-        border-bottom: 1px solid #84a59d;
+        border-bottom: 1px solid $light-color;
         .name {
           width: 50%;
           line-height: 78px;
@@ -370,10 +371,10 @@ export default {
         .contact-info {
           text-align: right;
           a {
-            color: #fff;
+            color: $front-color;
             transition: all 0.5s;
             &:hover {
-              color: #ccc;
+              color: $light-color;
             }
           }
         }
@@ -421,7 +422,7 @@ export default {
         &::after {
           content: '';
           position: absolute;
-          background-color: #eee;
+          background-color: $bg-color;
           height: 1px;
           top: 50%;
           width: calc(76% / 2 - 30px);
@@ -438,10 +439,10 @@ export default {
           width: 24%;
           min-width: 100px;
           margin: 0 auto;
-          color: #316c72;
+          color: $main-color;
           font-weight: 600;
           font-size: 17px;
-          background-color: #eee;
+          background-color: $bg-color;
           border-radius: 32px;
         }
       }
@@ -452,7 +453,7 @@ export default {
         justify-content: space-between;
         .item {
           width: 48%;
-          color: #333;
+          color: $main-color;
           &:not(:last-child) {
             margin-bottom: 20px;
           }
@@ -473,7 +474,7 @@ export default {
                 top: 0;
                 height: 100%;
                 width: 3px;
-                background-color: #316c72;
+                background-color: $main-color;
               }
             }
           }
@@ -493,7 +494,7 @@ export default {
                   font-weight: 600;
                 }
                 a {
-                  color: #316c72;
+                  color: $main-color;
                   &:hover {
                     text-decoration: underline;
                   }

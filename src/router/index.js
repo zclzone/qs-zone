@@ -32,11 +32,15 @@ const routes = [
     children: [
       {
         path: '',
-        component: () => import('@/views/blog'),
+        component: () => import('@/views/blog/index'),
         meta: {
           title: '奇思笔记',
           keepAlive: true
         }
+      },
+      {
+        path: ':id',
+        component: () => import('@/views/blog/detail'),
       }
     ],
   },
@@ -57,7 +61,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   scrollBehavior: () => ({ y: 0 }),
   routes
 })

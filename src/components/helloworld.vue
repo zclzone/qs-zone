@@ -32,6 +32,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~@/styles/variables';
 .content {
   height: 100%;
   display: flex;
@@ -40,11 +41,11 @@ export default {
   flex-direction: column;
   text-align: center;
   h1 {
-    color: #2e4c59;
+    color: $main-color;
   }
   p {
-    font-size: 18px;
-    color: #86a59d;
+    font-size: 16px;
+    color: $light-color;
     line-height: 35px;
   }
 }
@@ -52,11 +53,11 @@ export default {
   .content {
     background-image: -webkit-linear-gradient(
       left bottom,
-      #86a59d,
-      #2e4c59 25%,
-      #86a59d 50%,
-      #2e4c59 75%,
-      #86a59d
+      $light-color,
+      $main-color 25%,
+      $light-color 50%,
+      $main-color 75%,
+      $light-color
     );
     animation: masked-animation 4s infinite linear;
     -webkit-text-fill-color: transparent;

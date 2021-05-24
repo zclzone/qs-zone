@@ -47,14 +47,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~@/styles/variables';
 .menu {
   width: 100%;
   height: 100%;
-  overflow: auto;
 
   display: flex;
   flex-direction: column;
 
+  //隐藏滚动条
   // scrollbar-width: 0;
   // -ms-overflow-style: none;
   // &::-webkit-scrollbar {
@@ -78,9 +79,9 @@ export default {
     a {
       text-transform: uppercase;
       transition: color 0.3s;
-      color: #fff;
+      color: $front-color;
       &:hover {
-        color: #95a5aa;
+        color: $light-color;
         text-decoration: underline;
       }
     }

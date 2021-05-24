@@ -9,6 +9,7 @@
 </template>
 
 <style lang="scss" scoped>
+@import '~@/styles/variables';
 .hamburger {
   display: flex;
   align-items: center;
@@ -16,15 +17,15 @@
 
   height: 37px;
   padding: 0 10px;
-  background-color: #fff;
+  background-color: $front-color;
 
-  border: 1px solid rgba($color: #95a5aa, $alpha: 0.3);
+  border: 1px solid rgba($color: $light-color, $alpha: 0.3);
   border-radius: 5px;
 
   transition: all 0.3s;
   cursor: pointer;
   &:hover {
-    background-color: #e5e5e5;
+    background-color: $bg-color;
   }
   .hamburger-content {
     width: 16px;
@@ -35,7 +36,7 @@
       position: absolute;
       height: 2px;
       width: 100%;
-      background: #556270;
+      background: $light-color;
       border-radius: 2px;
       opacity: 1;
       left: 0;

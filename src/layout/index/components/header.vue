@@ -28,8 +28,8 @@ export default {
 .header {
   height: 67px;
   padding: 10px 30px;
-  background-color: #fff;
-  border-bottom: 1px solid rgba($color: #95a5aa, $alpha: 0.3);
+  background-color: --front-color;
+  border-bottom: 1px solid rgba(#84a59d, 0.3);
 
   display: flex;
   justify-content: space-between;

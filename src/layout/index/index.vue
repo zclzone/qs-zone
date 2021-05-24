@@ -80,14 +80,16 @@ export default {
 
 <style lang="scss" scoped>
 @import '~@/styles/layout';
+@import '~@/styles/variables';
 .layout {
-  background-color: #2e4c59;
+  background-color: $secondary-color;
   #side-menu {
     width: 0;
     height: 100%;
     padding: 20px 0;
-    background: #2e4c59;
+    background: $secondary-color;
     z-index: 99;
+    overflow: hidden;
     @media screen and (max-width: 992px) {
       & {
         position: absolute;
@@ -99,7 +101,7 @@ export default {
   #content {
     flex: 1;
     position: relative;
-    background-color: #fff;
+    background-color: $front-color;
 
     display: flex;
     flex-direction: column;
@@ -131,6 +133,7 @@ export default {
   &.menu-active {
     #side-menu {
       width: 200px;
+      overflow: auto;
     }
     #content {
       .hamburger {
@@ -155,6 +158,15 @@ export default {
       }
       .footer {
         border-bottom-right-radius: 30px;
+      }
+    }
+    @media screen and (max-width: 992px) {
+      #content {
+        border-radius: 0 !important;
+        .header,
+        .footer {
+          border-radius: 0 !important;
+        }
       }
     }
   }

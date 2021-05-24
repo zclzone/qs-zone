@@ -68,5 +68,5 @@ export function uppercaseFirst(string) {
 
 
 export function timeFormatter(time, cFormat) {
-  return parseTime(time, cFormat)
+  return parseTime(new Date(time), cFormat)
 }

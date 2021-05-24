@@ -9,10 +9,10 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     // 防止缓存，给get请求加上时间戳
-    if (config.method === 'get') {
-      const url = config.url
-      url.indexOf('?') === -1 ? config.url = url + '?_=' + (new Date().getTime()) : config.url = url + '&_=' + (new Date().getTime())
-    }
+    // if (config.method === 'get') {
+    //   const url = config.url
+    //   url.indexOf('?') === -1 ? config.url = url + '?_=' + (new Date().getTime()) : config.url = url + '&_=' + (new Date().getTime())
+    // }
     return config
   },
   err => Promise.reject(err)

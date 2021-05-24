@@ -71,11 +71,11 @@ export default {
     search() {
       if (this.keyword) {
         this.$router.push({
-          path: '/article',
+          path: '/blog',
           query: { keyword: this.keyword },
         })
       } else {
-        this.$router.push({ path: '/article' })
+        this.$router.push({ path: '/blog' })
       }
     },
     handleClick(tab) {},
@@ -102,11 +102,11 @@ export default {
 @import '~@/styles/variables';
 .secondary {
   width: 100%;
-  background: $front-color;
-  margin: 15px 0;
   section {
+    background: $front-color;
     border-radius: 5px;
     padding: 16px;
+    margin: 15px;
   }
   .about-author {
     text-align: center;

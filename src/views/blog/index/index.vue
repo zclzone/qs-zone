@@ -80,16 +80,30 @@ export default {
 @import '~@/styles/variables';
 .view {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  //隐藏滚动条
+  scrollbar-width: 0;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   .content {
+    flex: 1;
     display: flex;
     justify-content: space-between;
     background: $bg-color;
+
     .main {
       flex: 1;
       margin: 15px;
     }
     .side-bar {
       width: 350px;
+      @media screen and (max-width: 992px) {
+        display: none;
+      }
     }
   }
 }

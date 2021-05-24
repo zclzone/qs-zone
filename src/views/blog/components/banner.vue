@@ -30,10 +30,9 @@ export default {
 @import '~@/styles/variables';
 .banner {
   width: 100%;
-  height: 100px;
   background: $main-color;
+  padding: 15px;
   .banner-content {
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;

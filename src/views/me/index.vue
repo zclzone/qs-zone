@@ -298,8 +298,8 @@ export default {
 <style lang="scss" scoped>
 @import '~@/styles/variables';
 .view {
-  height: 100%;
-
+  min-height: 100%;
+  background: $bg-color;
   .header,
   .footer {
     width: 100%;

@@ -7,6 +7,7 @@
         </header>
         <section class="markdown-body post-body" v-html="postHtml"></section>
       </article>
+      <i class="qs-icon i-close" @click="handleClose"></i>
     </div>
   </div>
 </template>
@@ -37,6 +38,9 @@ export default {
       const md = new MarkdownIt()
       this.postHtml = md.render(this.post.content)
     },
+    handleClose() {
+      this.$router.push('/blog')
+    },
   },
 }
 </script>
@@ -53,6 +57,23 @@ export default {
     max-width: 1170px;
     background: $front-color;
     margin: 0 auto;
+    position: relative;
+    .i-close {
+      font-size: 30px;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      color: $light-color;
+      background: $front-color;
+      border: 1px solid rgba($color: $light-color, $alpha: 0.3);
+      border-radius: 5px;
+      transition: all 0.3s;
+      cursor: pointer;
+      &:hover {
+        color: $main-color;
+        background-color: $bg-color;
+      }
+    }
     .post-content {
       padding: 50px;
       position: relative;

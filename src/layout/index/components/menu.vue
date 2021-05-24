@@ -1,6 +1,6 @@
 <template>
   <ul class="menu">
-    <li v-for="(item, index) in menuList" :key="index">
+    <li v-for="(item, index) in menuList" :key="index" @click="handleClose">
       <router-link v-if="!item.isExternal" :to="item.link">
         {{ item.title }}
       </router-link>
@@ -34,6 +34,9 @@ export default {
         }
       })
       return menuList
+    },
+    handleClose() {
+      this.$store.dispatch('app/closeMenu')
     },
   },
   computed: {

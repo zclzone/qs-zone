@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@/store'
+
 import Layout from '@/layout/index'
 
 import { setPageTitle } from '@/utils/page'
@@ -15,6 +17,13 @@ const routes = [
   {
     path: '/index',
     component: Layout,
+    beforeEnter: (to, from, next) => {
+      store.dispatch('settings/changeSetting', {
+        isShowHeader: true,
+        isShowFooter: false,
+      })
+      next()
+    },
     children: [
       {
         path: '',
@@ -29,6 +38,13 @@ const routes = [
   {
     path: '/blog',
     component: Layout,
+    beforeEnter: (to, from, next) => {
+      store.dispatch('settings/changeSetting', {
+        isShowHeader: true,
+        isShowFooter: true,
+      })
+      next()
+    },
     children: [
       {
         path: '',
@@ -52,6 +68,13 @@ const routes = [
   {
     path: '/me',
     component: Layout,
+    beforeEnter: (to, from, next) => {
+      store.dispatch('settings/changeSetting', {
+        isShowHeader: false,
+        isShowFooter: false,
+      })
+      next()
+    },
     children: [
       {
         path: '',

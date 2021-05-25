@@ -1,8 +1,16 @@
 <template>
   <footer class="footer">
-    <p><a href="http://me.qszone.com">www.qszone.com</a></p>
-    <p>Designed & Powerd by <a href="http://www.qszone.com">Ronnie Zhang</a></p>
-    <p>Copyright© 2021 张传龙</p>
+    <p><a href="http://www.qszone.com">www.qszone.com</a></p>
+    <p>
+      Designed & Powerd by
+      <a href="http://www.qszone.com"> 张传龙 </a>
+      Copyright© 2021
+    </p>
+    <p>
+      <a href="http://beian.miit.gov.cn/" target="_blank"
+        >赣ICP备2020015008号-1</a
+      >
+    </p>
   </footer>
 </template>
 
@@ -16,7 +24,7 @@ export default {}
   width: 100%;
   height: 88px;
   padding: 10px 0;
-  background-color: $bg-color;
+  background-color: $front-color;
 
   display: flex;
   flex-direction: column;
@@ -26,10 +34,10 @@ export default {}
     font-size: 14px;
     color: $secondary-color;
     a {
-      color: $main-color;
+      color: $light-color;
       transition: color 0.3s;
       &:hover {
-        color: $light-color;
+        color: $main-color;
         text-decoration: underline;
       }
     }

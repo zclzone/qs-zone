@@ -288,10 +288,8 @@
 </template>
 
 <script>
-import helloworld from '@/components/helloworld.vue'
 export default {
   name: 'Me',
-  components: { helloworld },
 }
 </script>
 

@@ -5,6 +5,8 @@
       <primary class="main" :postList="postList" :headerTitle="headerTitle" />
       <sidebar class="side-bar" :postListData="postListData" />
     </div>
+    <!-- 尾部：版权信息/备案信息 -->
+    <app-footer />
   </div>
 </template>
 
@@ -12,11 +14,12 @@
 import banner from '@/views/blog/components/banner'
 import primary from './components/primary'
 import sidebar from './components/sidebar'
+import AppFooter from '@/components/footer'
 
 import { getPosts } from '@/api/blog'
 export default {
   name: 'Blog',
-  components: { banner, primary, sidebar },
+  components: { banner, primary, sidebar, AppFooter },
   data() {
     return {
       postListData: [],

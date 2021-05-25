@@ -38,13 +38,6 @@ const routes = [
   {
     path: '/blog',
     component: Layout,
-    beforeEnter: (to, from, next) => {
-      store.dispatch('settings/changeSetting', {
-        isShowHeader: true,
-        isShowFooter: true,
-      })
-      next()
-    },
     children: [
       {
         path: '',
@@ -68,13 +61,6 @@ const routes = [
   {
     path: '/me',
     component: Layout,
-    beforeEnter: (to, from, next) => {
-      store.dispatch('settings/changeSetting', {
-        isShowHeader: false,
-        isShowFooter: false,
-      })
-      next()
-    },
     children: [
       {
         path: '',

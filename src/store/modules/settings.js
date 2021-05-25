@@ -9,7 +9,6 @@ const state = {
   isShowMenu,
   navDirection,
   isShowHeader,
-  isShowFooter,
 }
 
 const mutations = {

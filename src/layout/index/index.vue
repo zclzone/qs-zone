@@ -23,9 +23,6 @@
 
       <!-- 内容 -->
       <app-main />
-
-      <!-- 尾部：版权信息/备案信息 -->
-      <app-footer v-if="isShowFooter" />
     </section>
   </div>
 </template>
@@ -35,7 +32,6 @@ import SideMenu from './components/menu'
 import Hamburger from '@/components/hamburger'
 import AppHeader from './components/header'
 import AppMain from './components/main'
-import AppFooter from './components/footer'
 import { title } from '@/settings'
 import { mapState } from 'vuex'
 export default {
@@ -56,7 +52,6 @@ export default {
     Hamburger,
     AppHeader,
     AppMain,
-    AppFooter,
   },
   methods: {
     handleTaggleMenu() {
@@ -72,7 +67,6 @@ export default {
       isShowMenu: state => state.settings.isShowMenu,
       navDirection: state => state.settings.navDirection,
       isShowHeader: state => state.settings.isShowHeader,
-      isShowFooter: state => state.settings.isShowFooter,
     }),
   },
 }
@@ -147,9 +141,6 @@ export default {
       .header {
         border-top-left-radius: 30px;
       }
-      .footer {
-        border-bottom-left-radius: 30px;
-      }
     }
     &.right #content {
       border-top-right-radius: 30px;
@@ -157,15 +148,11 @@ export default {
       .header {
         border-top-right-radius: 30px;
       }
-      .footer {
-        border-bottom-right-radius: 30px;
-      }
     }
     @media screen and (max-width: 992px) {
       #content {
         border-radius: 0 !important;
-        .header,
-        .footer {
+        .header {
           border-radius: 0 !important;
         }
       }

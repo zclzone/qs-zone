@@ -23,7 +23,7 @@ export default {
   methods: {
     generateMenuList(menuList, routes, parentPath = '') {
       routes.forEach(item => {
-        if (item.meta && item.meta.title) {
+        if (!item.isHidden && item.meta && item.meta.title) {
           menuList.push({
             link: parentPath + item.path,
             title: item.meta.title,

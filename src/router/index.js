@@ -35,12 +35,17 @@ const routes = [
         component: () => import('@/views/blog/index'),
         meta: {
           title: '奇思笔记',
-          keepAlive: true
+          keepAlive: false
         }
       },
       {
         path: ':id',
         component: () => import('@/views/blog/detail'),
+        isHidden: true,
+        meta: {
+          title: '文章详情',
+          keepAlive: false
+        }
       }
     ],
   },

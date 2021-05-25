@@ -106,6 +106,7 @@ export default {
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: 100%;
     .hamburger {
       position: absolute;
       z-index: 100;

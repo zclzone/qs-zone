@@ -1,10 +1,9 @@
 <template>
   <footer class="footer">
-    <p><a href="http://www.qszone.com">www.qszone.com</a></p>
     <p>
       Designed & Powerd by
       <a href="http://www.qszone.com"> 张传龙 </a>
-      Copyright© 2021
+      Copyright© 2020-2021
     </p>
     <p>
       <a href="http://beian.miit.gov.cn/" target="_blank"

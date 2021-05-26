@@ -62,8 +62,8 @@ export default {
       margin: 0;
       font-size: 30px;
       position: absolute;
-      right: 15px;
-      top: 15px;
+      right: 30px;
+      top: 30px;
       color: $light-color;
       background: $front-color;
       opacity: 0.5;

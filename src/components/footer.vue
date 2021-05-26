@@ -2,9 +2,9 @@
   <footer class="footer">
     <p>
       Designed & Powerd by
-      <a href="http://www.qszone.com"> 张传龙 </a>
-      Copyright© 2020-2021
+      <a href="http://www.qszone.com"> Ronnie Zhang </a>
     </p>
+    <p>Copyright© 2020-2021 张传龙</p>
     <p>
       <a href="http://beian.miit.gov.cn/" target="_blank"
         >赣ICP备2020015008号-1</a
@@ -21,7 +21,6 @@ export default {}
 @import '~@/styles/variables';
 .footer {
   width: 100%;
-  height: 88px;
   padding: 10px 0;
   background-color: $front-color;
 
@@ -32,6 +31,7 @@ export default {}
   p {
     font-size: 14px;
     color: $secondary-color;
+    line-height: 1.5;
     a {
       color: $light-color;
       transition: color 0.3s;

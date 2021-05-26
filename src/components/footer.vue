@@ -4,7 +4,7 @@
       Designed & Powerd by
       <a href="http://www.qszone.com"> Ronnie Zhang </a>
     </p>
-    <p>Copyright© 2020-2021 张传龙</p>
+    <p>Copyright© 2020-{{ new Date().getFullYear() }} 张传龙</p>
     <p>
       <a href="http://beian.miit.gov.cn/" target="_blank"
         >赣ICP备2020015008号-1</a

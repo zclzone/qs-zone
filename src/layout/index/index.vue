@@ -129,9 +129,6 @@ export default {
       width: 200px;
       overflow: auto;
     }
-    #content {
-      opacity: 0.2;
-    }
     &.left #content {
       border-top-left-radius: 30px;
       border-bottom-left-radius: 30px;

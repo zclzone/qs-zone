@@ -25,9 +25,8 @@ export default {
       postHtml: '',
     }
   },
-  mounted() {
-    this.getPost()
-    setPageTitle((this.post && this.post.title) || '')
+  async mounted() {
+    await this.getPost()
   },
   methods: {
     async getPost() {

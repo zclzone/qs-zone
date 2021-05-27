@@ -1,9 +1,16 @@
 <template>
-  <header class="header" v-if="title">
+  <header class="header">
     <h1 class="brand">
-      <router-link @click.stop :to="$route.path" class="title">{{
-        title
-      }}</router-link>
+      <router-link
+        @click.stop
+        :to="route.path"
+        class="title"
+        :class="{ active: index === breadList.length - 1 }"
+        v-for="(route, index) in breadList"
+        :key="index"
+      >
+        {{ route.title }}
+      </router-link>
     </h1>
   </header>
 </template>
@@ -16,9 +23,28 @@ export default {
       default: '',
     },
   },
-  computed: {
-    title() {
-      return (this.$route.meta && this.$route.meta.title) || ''
+  data() {
+    return {
+      breadList: [],
+    }
+  },
+  created() {
+    this.generateBreadCrumb()
+  },
+  methods: {
+    generateBreadCrumb() {
+      let matched = this.$route.matched
+      this.breadList = matched
+        .filter(route => route.meta && route.meta.title)
+        .map(route => {
+          return { path: route.path, title: route.meta.title }
+        })
+    },
+  },
+  watch: {
+    $route() {
+      this.generateBreadCrumb()
+      console.log(this.breadList)
     },
   },
 }
@@ -35,14 +61,29 @@ export default {
   justify-content: space-between;
   align-items: center;
   .brand {
-    font-size: 22px;
+    font-size: 16px;
     text-transform: uppercase;
     display: flex;
     align-items: center;
-    color: #95a5aa;
 
     .title {
-      color: #2e4c59;
+      color: #95a5aa;
+      & ~ .title {
+        margin-left: 30px;
+        position: relative;
+        &::before {
+          position: absolute;
+          content: '·';
+          top: 0;
+          left: -18px;
+          color: #95a5aa;
+        }
+      }
+
+      &.active {
+        font-size: 22px;
+        color: #2e4c59;
+      }
     }
   }
 }

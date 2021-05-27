@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import store from '@/store'
 
 import Layout from '@/layout/index'
 
@@ -17,35 +16,28 @@ const routes = [
   {
     path: '/index',
     component: Layout,
-    beforeEnter: (to, from, next) => {
-      store.dispatch('settings/changeSetting', {
-        isShowHeader: true,
-        isShowFooter: false,
-      })
-      next()
+    meta: {
+      title: '奇思站',
+      keepAlive: true
     },
     children: [
       {
         path: '',
         component: () => import('@/views/home'),
-        meta: {
-          title: '奇思站',
-          keepAlive: true
-        },
       }
     ]
   },
   {
     path: '/blog',
     component: Layout,
+    meta: {
+      title: '奇思笔记',
+      keepAlive: false
+    },
     children: [
       {
         path: '',
         component: () => import('@/views/blog/index'),
-        meta: {
-          title: '奇思笔记',
-          keepAlive: false
-        }
       },
       {
         path: ':id',
@@ -61,14 +53,14 @@ const routes = [
   {
     path: '/me',
     component: Layout,
+    meta: {
+      title: '关于我',
+      keepAlive: true
+    },
     children: [
       {
         path: '',
         component: () => import('@/views/me'),
-        meta: {
-          title: '关于我',
-          keepAlive: true
-        }
       }
     ],
   },

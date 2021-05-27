@@ -88,7 +88,6 @@ export default {
       & {
         position: absolute;
         left: 0;
-        opacity: 0.9;
       }
     }
   }
@@ -131,9 +130,7 @@ export default {
       overflow: auto;
     }
     #content {
-      .hamburger {
-        opacity: 0.5;
-      }
+      opacity: 0.2;
     }
     &.left #content {
       border-top-left-radius: 30px;

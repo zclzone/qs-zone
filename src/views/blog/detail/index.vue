@@ -7,7 +7,6 @@
         </header>
         <section class="markdown-body post-body" v-html="postHtml"></section>
       </article>
-      <i class="qs-icon i-close" @click="handleClose"></i>
     </div>
   </div>
 </template>
@@ -57,25 +56,6 @@ export default {
     background: $front-color;
     margin: 0 auto;
     position: relative;
-    .i-close {
-      margin: 0;
-      font-size: 30px;
-      position: absolute;
-      right: 30px;
-      top: 30px;
-      color: $light-color;
-      background: $front-color;
-      opacity: 0.5;
-      border: 1px solid rgba($color: $light-color, $alpha: 0.3);
-      border-radius: 5px;
-      transition: all 0.3s;
-      cursor: pointer;
-      &:hover {
-        opacity: 1;
-        color: $main-color;
-        background-color: $bg-color;
-      }
-    }
     .post-content {
       padding: 35px;
       position: relative;

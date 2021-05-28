@@ -96,7 +96,6 @@ export default {
     width: 100%;
     .hamburger {
       position: absolute;
-      z-index: 100;
       top: 15px;
       &.left {
         left: 15px;
@@ -122,6 +121,9 @@ export default {
     #side-menu {
       width: 200px;
       overflow: auto;
+    }
+    #content {
+      opacity: 0.6;
     }
     &.left #content {
       border-top-left-radius: 30px;

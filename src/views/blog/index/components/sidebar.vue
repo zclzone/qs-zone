@@ -13,7 +13,7 @@
       <div class="search-category">
         <router-link
           class="category-link"
-          :to="'/blog?category=' + key"
+          :to="'/blog/list?category=' + key"
           :key="key"
           v-for="(value, key) in categories"
           >{{ key }}</router-link
@@ -71,11 +71,11 @@ export default {
     search() {
       if (this.keyword) {
         this.$router.push({
-          path: '/blog',
+          path: '/blog/list',
           query: { keyword: this.keyword },
         })
       } else {
-        this.$router.push({ path: '/blog' })
+        this.$router.push({ path: '/blog/list' })
       }
     },
     handleClick(tab) {},

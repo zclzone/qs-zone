@@ -6,7 +6,7 @@
   >
     <!-- 侧边栏菜单 -->
     <nav id="side-menu" v-if="isShowMenu" @click.stop>
-      <side-menu :menuList="menuList" />
+      <side-menu />
     </nav>
 
     <!-- 主体部分 -->
@@ -39,12 +39,6 @@ export default {
   data() {
     return {
       title,
-      menuList: [
-        { name: '首页', link: '/' },
-        { name: '奇思笔记', link: '/blog' },
-        { name: '关于我', link: '/me' },
-        { name: 'Contact', link: 'http://me.qszone.com', isExternal: true },
-      ],
     }
   },
   components: {

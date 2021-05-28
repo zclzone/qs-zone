@@ -32,7 +32,10 @@
                 rel="noopener noreferrer"
               >
                 <span class="link-text">我的博客网站</span>
-                <i class="qs-icon i-home" title="http://blog.qszone.com"></i>
+                <i
+                  class="qs-icon i-home"
+                  title="http://www.qszone.com/blog"
+                ></i>
               </a>
             </li>
             <li>
@@ -203,10 +206,10 @@
                       <li>
                         <span class="title">地址：</span
                         ><a
-                          href="http://blog.qszone.com"
+                          href="http://www.qszone.com/blog"
                           target="_blank"
                           rel="noopener noreferrer"
-                          >http://blog.qszone.com（已备案）</a
+                          >http://www.qszone.com/blog（已备案）</a
                         >
                       </li>
                       <li>

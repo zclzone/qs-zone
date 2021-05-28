@@ -2,7 +2,7 @@
   <ul class="post-list">
     <li class="post-item" v-for="(item, index) in postList" :key="index">
       <div class="item-title">
-        <router-link :to="'/blog/' + item.id">
+        <router-link :to="'/blog/list/' + item.id">
           <h3 class="post-title">{{ item.title }}</h3>
         </router-link>
         <span class="post-author sm-hide">— {{ item.author }}</span>
@@ -11,7 +11,7 @@
       <div class="post-info">
         <span class="post-category">
           类别：
-          <router-link :to="'/blog?category=' + item.category">{{
+          <router-link :to="'/blog/list?category=' + item.category">{{
             item.category
           }}</router-link>
         </span>

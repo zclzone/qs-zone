@@ -16,8 +16,9 @@
 </template>
 
 <script>
+const homeLink = [{ title: '首页', link: '/' }]
 const externalLinks = [
-  { title: 'external', link: 'http://me.qszone.com', isExternal: true },
+  { title: 'external', link: 'http://blog.qszone.com', isExternal: true },
 ]
 export default {
   methods: {
@@ -41,9 +42,12 @@ export default {
   },
   computed: {
     menuList() {
-      let menuList = []
-      this.generateMenuList(menuList, this.$router.options.routes)
-      return menuList.concat(externalLinks)
+      return homeLink.concat(
+        this.$router.options.routes
+          .filter(route => !route.isHidden && route.meta && route.meta.title)
+          .map(route => ({ link: route.path, title: route.meta.title }))
+          .concat(externalLinks)
+      )
     },
   },
 }

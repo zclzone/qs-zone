@@ -10,37 +10,50 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    redirect: '/index',
-  },
-  {
-    path: '/index',
+    path: '/redirect',
     component: Layout,
-    meta: {
-      title: '奇思站',
-      keepAlive: true
-    },
+    hidden: true,
     children: [
       {
-        path: '',
+        path: '/redirect/:path(.*)',
+        component: () => import('@/views/redirect')
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/index',
+    children: [
+      {
+        path: 'index',
         component: () => import('@/views/home'),
+        meta: {
+          title: '奇思站',
+          keepAlive: true
+        },
       }
     ]
   },
   {
     path: '/blog',
     component: Layout,
+    redirect: '/blog/list',
     meta: {
       title: '奇思笔记',
       keepAlive: false
     },
     children: [
       {
-        path: '',
+        path: 'list',
         component: () => import('@/views/blog/index'),
+        meta: {
+          title: '文章列表',
+          keepAlive: false
+        },
       },
       {
-        path: ':id',
+        path: 'list/:id',
         component: () => import('@/views/blog/detail'),
         isHidden: true,
         meta: {
@@ -53,14 +66,19 @@ const routes = [
   {
     path: '/me',
     component: Layout,
+    redirect: '/me/index',
     meta: {
       title: '关于我',
       keepAlive: true
     },
     children: [
       {
-        path: '',
+        path: 'index',
         component: () => import('@/views/me'),
+        meta: {
+          title: 'RESUME',
+          keepAlive: true
+        },
       }
     ],
   },

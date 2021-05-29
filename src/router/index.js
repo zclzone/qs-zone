@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@/store'
 
 import Layout from '@/layout/index'
 
@@ -30,6 +31,7 @@ const routes = [
         component: () => import('@/views/home'),
         meta: {
           title: '奇思站',
+          isHiddenHeader: true,
           keepAlive: true
         },
       }
@@ -95,6 +97,15 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   if (to.meta && to.meta.title) {
     setPageTitle(to.path === '/index' ? '' : to.meta.title)
+  }
+  if (to.meta && to.meta.isHiddenHeader) {
+    store.dispatch('settings/changeSetting', {
+      isShowHeader: false,
+    })
+  } else {
+    store.dispatch('settings/changeSetting', {
+      isShowHeader: true,
+    })
   }
   next()
 })

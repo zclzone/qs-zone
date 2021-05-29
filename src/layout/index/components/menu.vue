@@ -46,7 +46,7 @@ export default {
         this.$router.options.routes
           .filter(route => !route.isHidden && route.meta && route.meta.title)
           .map(route => ({ link: route.path, title: route.meta.title }))
-          .concat(externalLinks)
+        // .concat(externalLinks)
       )
     },
   },

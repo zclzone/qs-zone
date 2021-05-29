@@ -122,9 +122,6 @@ export default {
       width: 200px;
       overflow: auto;
     }
-    #content {
-      opacity: 0.6;
-    }
     &.left #content {
       border-top-left-radius: 30px;
       border-bottom-left-radius: 30px;
@@ -141,6 +138,7 @@ export default {
     }
     @media screen and (max-width: 992px) {
       #content {
+        opacity: 0.9;
         border-radius: 0 !important;
         .header {
           border-radius: 0 !important;

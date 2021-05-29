@@ -24,7 +24,7 @@ module.exports = {
       sass: {
         prependData: `
           /* 阿里字体图标 */
-          @import '//at.alicdn.com/t/font_1186631_7n6duv59lpp.css';
+          @import '//at.alicdn.com/t/font_1186631_hf0u23tmcee.css';
           /* 字体 */
           // @import '//fonts.googleapis.com/css?family=Encode+Sans+Condensed:400,600';
           /* 重置样式 */

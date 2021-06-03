@@ -51,6 +51,7 @@ module.exports = {
     proxy: {
       [process.env.VUE_APP_BASE_API]: {
         target: 'http://www.qszone.com/api',  //要访问的跨域的域名
+        // target: 'http://localhost:8080',  //要访问的跨域的域名
         ws: false, // 是否启用websockets
         secure: false, // 使用的是http协议则设置为false，https协议则设置为true
         changeOrigin: true,

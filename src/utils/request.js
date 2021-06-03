@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { getToken } from '@/utils/cookie'
+import router from '@/router'
 
 const service = axios.create({
   timeout: 30000,
@@ -20,6 +21,7 @@ service.interceptors.request.use(
     const token = getToken()
     if (!token) {
       alert('请登录')
+      router.replace('/login')
       return Promise.reject('未登录')
     }
     config.headers['Authorization'] = token
@@ -32,7 +34,7 @@ service.interceptors.response.use(
   response => response.data,
   async err => {
     if (err.status = '401') {
-      alert('登录过期，请重新登录')
+      console.error(error)
     }
     return Promise.reject(err)
   }

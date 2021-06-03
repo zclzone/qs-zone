@@ -222,24 +222,50 @@ export default {
       this.favorite = {}
     },
     async getFavorites(id = 1) {
-      const res = await getCollectionById({ id })
-      if (res.message === 'OK' && res.collection.content) {
-        localStorage.setItem('favorites', res.collection.content)
-        this.favorites = JSON.parse(res.collection.content)
+      try {
+        $loading.show()
+        const res = await getCollectionById({ id })
+        $loading.hide()
+        if (res.message === 'OK' && res.collection.content) {
+          localStorage.setItem('favorites', res.collection.content)
+          this.favorites = JSON.parse(res.collection.content)
+        } else {
+          alert(res.message)
+        }
+      } catch (error) {
+        $loading.hide()
+        console.error(error)
       }
     },
     async syncToLocal() {
-      const res = await getCollectionByUserId()
-      if (res.message === 'OK') {
-        this.favorites = JSON.parse(res.collection.content)
-        alert('同步成功')
+      try {
+        $loading.show()
+        const res = await getCollectionByUserId()
+        $loading.hide()
+        if (res.message === 'OK') {
+          this.favorites = JSON.parse(res.collection.content)
+          alert('同步成功')
+        } else {
+          alert(res.message)
+        }
+      } catch (error) {
+        $loading.hide()
+        console.error(error)
       }
     },
     async syncToRemote() {
-      const res = await updateCollection({
-        content: localStorage.getItem('favorites'),
-      })
-      alert(res.message)
+      try {
+        $loading.show()
+        const res = await updateCollection({
+          content: localStorage.getItem('favorites'),
+        })
+        alert(res.message)
+
+        $loading.hide()
+      } catch (error) {
+        $loading.hide()
+        console.error(error)
+      }
     },
   },
 }

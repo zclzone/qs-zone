@@ -97,6 +97,7 @@ export default {
     .hamburger {
       position: absolute;
       top: 15px;
+      opacity: 0.6;
       &.left {
         left: 15px;
       }

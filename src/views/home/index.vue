@@ -1,5 +1,5 @@
 <template>
-  <div class="view" v-show="true">
+  <div class="view">
     <div class="content">
       <clock />
       <search />

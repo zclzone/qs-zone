@@ -1,8 +1,9 @@
 <template>
   <div
     class="layout"
+    :class="{ 'menu-active': isMenuActive }"
     @click="handleCloseMenu"
-    :class="{ [navDirection]: true, 'menu-active': isMenuActive }"
+    v-waterMarker="{ text: title }"
   >
     <!-- 侧边栏菜单 -->
     <nav id="side-menu" v-if="isShowMenu" @click.stop>
@@ -15,11 +16,8 @@
       <hamburger
         v-if="isShowMenu"
         @click.stop.native="handleTaggleMenu"
-        :class="{ [navDirection]: true, active: isMenuActive }"
+        :class="{ active: isMenuActive }"
       />
-
-      <!-- 头部 -->
-      <app-header v-if="isShowHeader" :brand="title" />
 
       <!-- 内容 -->
       <app-main />
@@ -30,7 +28,6 @@
 <script>
 import SideMenu from './components/menu'
 import Hamburger from '@/components/hamburger'
-import AppHeader from './components/header'
 import AppMain from './components/main'
 import { title } from '@/settings'
 import { mapState } from 'vuex'
@@ -44,7 +41,6 @@ export default {
   components: {
     SideMenu,
     Hamburger,
-    AppHeader,
     AppMain,
   },
   methods: {
@@ -59,8 +55,6 @@ export default {
     ...mapState({
       isMenuActive: state => state.app.isMenuActive,
       isShowMenu: state => state.settings.isShowMenu,
-      navDirection: state => state.settings.navDirection,
-      isShowHeader: state => state.settings.isShowHeader,
     }),
   },
 }
@@ -70,82 +64,50 @@ export default {
 @import '~@/styles/layout';
 @import '~@/styles/variables';
 .layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   background-color: $secondary-color;
   #side-menu {
     width: 0;
     height: 100%;
-    padding: 20px 0;
+    padding: 20px 0 0;
     background: $secondary-color;
+    background: transparent;
     z-index: 99;
     overflow: hidden;
-    @media screen and (max-width: 992px) {
-      & {
-        position: absolute;
-        left: 0;
-      }
-    }
-  }
-  #content {
-    flex: 1;
-    position: relative;
-    background-color: $front-color;
-
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    .hamburger {
-      position: absolute;
-      top: 15px;
-      opacity: 0.6;
-      &.left {
-        left: 15px;
-      }
-      &.right {
-        right: 15px;
-      }
-    }
-  }
-  &.left {
-    flex-direction: row;
-    #content .header {
-      padding-left: 70px;
-    }
-  }
-  &.right {
-    flex-direction: row-reverse;
-    #content .header {
-      padding-right: 70px;
-    }
   }
   &.menu-active {
     #side-menu {
-      width: 200px;
+      width: 220px;
       overflow: auto;
     }
-    &.left #content {
-      border-top-left-radius: 30px;
-      border-bottom-left-radius: 30px;
-      .header {
-        border-top-left-radius: 30px;
-      }
-    }
-    &.right #content {
-      border-top-right-radius: 30px;
-      border-bottom-right-radius: 30px;
-      .header {
-        border-top-right-radius: 30px;
-      }
-    }
-    @media screen and (max-width: 992px) {
-      #content {
-        opacity: 0.9;
-        border-radius: 0 !important;
-        .header {
-          border-radius: 0 !important;
-        }
-      }
-    }
+  }
+}
+
+#content {
+  height: 100%;
+  position: relative;
+  background-color: $front-color;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .hamburger {
+    position: absolute;
+    top: 15px;
+    opacity: 0.6;
+    left: 15px;
+  }
+}
+@media screen and (max-width: 992px) {
+  #content {
+    opacity: 0.8;
+  }
+  #side-menu {
+    position: absolute;
+    left: 0;
   }
 }
 </style>

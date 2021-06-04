@@ -13,7 +13,7 @@ const routes = [
   {
     path: '/redirect',
     component: Layout,
-    hidden: true,
+    isHidden: true,
     children: [
       {
         path: '/redirect/:path(.*)',
@@ -32,7 +32,7 @@ const routes = [
         meta: {
           title: '奇思站',
           isHiddenHeader: true,
-          keepAlive: true
+          keepAlive: false
         },
       }
     ]
@@ -79,14 +79,19 @@ const routes = [
         component: () => import('@/views/me'),
         meta: {
           title: 'RESUME',
-          keepAlive: true
+          keepAlive: true,
         },
       }
     ],
   },
   {
     path: '/login',
-    component: () => import('@/views/login')
+    component: () => import('@/views/login'),
+    isHidden: true,
+    meta: {
+      title: 'Login',
+      keepAlive: true,
+    },
   }
 ]
 
@@ -101,15 +106,6 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   if (to.meta && to.meta.title) {
     setPageTitle(to.path === '/index' ? '' : to.meta.title)
-  }
-  if (to.meta && to.meta.isHiddenHeader) {
-    store.dispatch('settings/changeSetting', {
-      isShowHeader: false,
-    })
-  } else {
-    store.dispatch('settings/changeSetting', {
-      isShowHeader: true,
-    })
   }
   next()
 })

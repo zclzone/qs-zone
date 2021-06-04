@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer" :style="footerStyle">
+  <footer class="footer">
     <p>
       Designed & Powerd by
       <a href="http://www.qszone.com"> Ronnie Zhang </a>
@@ -13,26 +13,14 @@
   </footer>
 </template>
 
-<script>
-export default {
-  props: {
-    footerStyle: {
-      type: Object,
-      default() {
-        return {
-          backgroundColor: '#fff',
-        }
-      },
-    },
-  },
-}
-</script>
 
 <style lang="scss" scoped>
 @import '~@/styles/variables';
 .footer {
   width: 100%;
   padding: 10px 0;
+  background-color: #fff;
+  height: 85px;
 
   display: flex;
   flex-direction: column;

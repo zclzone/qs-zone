@@ -46,10 +46,15 @@ export default {
 <style lang="scss" scoped>
 @import '~@/styles/variables';
 .detail-container {
-  width: 100%;
-  min-height: 100%;
+  flex: 1;
+  overflow: auto;
   background: $bg-color;
   padding: 20px 0;
+  scrollbar-width: 0;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   .post-container {
     width: 100%;
     max-width: 1170px;

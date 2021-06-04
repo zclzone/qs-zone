@@ -8,9 +8,17 @@
       <a v-else :href="item.link" target="_blank">{{ item.title }}</a>
     </li>
 
-    <li class="last">
-      <a href="https://github.com/zclzone">Wechat</a>
-      <a href="https://github.com/zclzone">Github</a>
+    <li class="last" v-if="isLogged">
+      <a v-if="isLogged">
+        <img src="@/assets/images/author.jpg" alt="" />
+      </a>
+      <a href="#" @click.prevent="logout">退出</a>
+    </li>
+    <li class="last" v-else>
+      <a>
+        <img src="@/assets/images/avartar.png" alt="" />
+      </a>
+      <a href="#" @click.prevent="login">登录</a>
     </li>
   </ul>
 </template>
@@ -20,6 +28,7 @@ const homeLink = [{ title: '首页', link: '/' }]
 const externalLinks = [
   { title: 'external', link: 'http://blog.qszone.com', isExternal: true },
 ]
+import { getToken, removeToken } from '@/utils/cookie'
 export default {
   methods: {
     generateMenuList(menuList, routes, parentPath = '') {
@@ -39,6 +48,15 @@ export default {
     handleClose() {
       this.$store.dispatch('app/closeMenu')
     },
+    login() {
+      this.$store.dispatch('app/closeMenu')
+      this.$router.push('/login')
+    },
+    logout() {
+      removeToken()
+      this.$store.dispatch('app/closeMenu')
+      this.$router.replace('/login')
+    },
   },
   computed: {
     menuList() {
@@ -48,6 +66,9 @@ export default {
           .map(route => ({ link: route.path, title: route.meta.title }))
         // .concat(externalLinks)
       )
+    },
+    isLogged() {
+      return !!getToken()
     },
   },
 }
@@ -73,13 +94,25 @@ export default {
     margin: 10px auto;
     padding: 0 15px;
     white-space: nowrap;
+    font-size: 18px;
+    font-weight: 600;
     &.last {
+      width: 100%;
       margin-top: auto;
+      margin-bottom: 0;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
       a {
-        font-size: 12px;
-        font-weight: 400;
-        & + a {
-          margin-left: 15px;
+        display: block;
+        width: 40px;
+        font-weight: 600;
+        margin: 0 15px;
+        img {
+          width: 100%;
+          border-radius: 50%;
         }
       }
     }

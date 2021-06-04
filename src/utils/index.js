@@ -404,6 +404,21 @@ export function removeClass(ele, cls) {
   }
 }
 
+export function addWaterMarker(el, text, textFont, textColor) {
+  let waterCan = document.createElement('canvas')
+  waterCan.width = 100
+  waterCan.height = 120
+
+  let waterCans = waterCan.getContext('2d')
+  waterCans.rotate((-20 * Math.PI) / 180)
+  waterCans.font = textFont || '18px sans-serif'
+  waterCans.fillStyle = textColor || 'rgba(180, 180, 180, 0.3)'
+  waterCans.textAlign = 'left'
+  waterCans.textBaseline = 'Middle'
+  waterCans.fillText(text, waterCan.width / 10, waterCan.height / 2)
+  el.style.backgroundImage = 'url(' + waterCan.toDataURL('image/png') + ')'
+}
+
 export function utf8ToBase64(str) {
   return btoa(unescape(encodeURIComponent(str)))
 }

@@ -1,12 +1,10 @@
 <template>
   <div class="view">
-    <div class="content">
-      <clock />
-      <search />
-      <favorites />
-    </div>
+    <clock />
+    <search />
+    <favorites />
     <!-- 尾部：版权信息/备案信息 -->
-    <app-footer :footerStyle="{ backgroundColor: 'transparent' }" />
+    <app-footer v-if="!$route.meta.isHiddenFooter" />
   </div>
 </template>
 
@@ -27,9 +25,10 @@ export default {
 }
 </script>
 
+
 <style lang="scss" scoped>
 .view {
-  height: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -42,5 +41,11 @@ export default {
   .content {
     flex: 1;
   }
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
 }
 </style>

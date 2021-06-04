@@ -18,7 +18,8 @@ export default {
 .header {
   height: 67px;
   padding: 10px 30px;
-  background-color: --front-color;
+  padding-left: 70px;
+  background-color: $front-color;
   border-bottom: 1px solid rgba($light-color, 0.3);
 
   display: flex;

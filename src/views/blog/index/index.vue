@@ -1,12 +1,10 @@
 <template>
   <div class="view">
     <banner />
-    <div class="content">
+    <div class="content" v-waterMarker="{ text: '奇思笔记' }">
       <primary class="main" :postList="postList" :headerTitle="headerTitle" />
       <sidebar class="side-bar" :postListData="postListData" />
     </div>
-    <!-- 尾部：版权信息/备案信息 -->
-    <app-footer />
   </div>
 </template>
 
@@ -14,12 +12,11 @@
 import banner from '@/views/blog/components/banner'
 import primary from './components/primary'
 import sidebar from './components/sidebar'
-import AppFooter from '@/components/footer'
 
 import { getPosts } from '@/api/blog'
 export default {
   name: 'Blog',
-  components: { banner, primary, sidebar, AppFooter },
+  components: { banner, primary, sidebar },
   data() {
     return {
       postListData: [],
@@ -82,7 +79,7 @@ export default {
 <style lang="scss" scoped>
 @import '~@/styles/variables';
 .view {
-  height: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -97,7 +94,6 @@ export default {
     display: flex;
     justify-content: space-between;
     background: $bg-color;
-
     .main {
       flex: 1;
       margin: 15px;

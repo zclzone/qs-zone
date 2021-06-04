@@ -25,6 +25,7 @@
               type="password"
               class="input"
               placeholder="Password"
+              @keydown.enter="handleLogin"
             />
           </div>
           <button class="submit-btn" @click="handleLogin">Login</button>

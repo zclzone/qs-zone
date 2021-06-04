@@ -1,14 +1,7 @@
-import {
-  isShowMenu, //是否显示侧边栏菜单
-  navDirection,  // 侧边栏显示位置：left OR right
-  isShowHeader,  //是否显示主体内容的头部信息
-  isShowFooter,  //是否显示主体内容的尾部信息
-} from '@/settings'
+import { isShowMenu } from '@/settings'
 
 const state = {
   isShowMenu,
-  navDirection,
-  isShowHeader,
 }
 
 const mutations = {

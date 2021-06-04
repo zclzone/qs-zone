@@ -1,5 +1,6 @@
 <template>
   <main class="main">
+    <app-header v-if="!$route.meta.isHiddenHeader" />
     <keep-alive>
       <router-view v-if="$route.meta.keepAlive" />
     </keep-alive>
@@ -7,9 +8,20 @@
   </main>
 </template>
 
+<script>
+import AppHeader from '@/components/header'
+
+export default {
+  components: {
+    AppHeader,
+  },
+}
+</script>
+
 <style lang="scss" scoped>
 .main {
-  flex: 1;
-  overflow: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 </style>

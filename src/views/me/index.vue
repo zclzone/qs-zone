@@ -1,5 +1,5 @@
 <template>
-  <div class="view">
+  <div class="view" v-waterMarker="{ text: '张传龙' }">
     <header class="header">
       <a
         href="./张传龙-3年经验-Web前端开发工程师.pdf"
@@ -299,8 +299,17 @@ export default {
 <style lang="scss" scoped>
 @import '~@/styles/variables';
 .view {
-  min-height: 100%;
+  flex: 1;
   background: $bg-color;
+  overflow: auto;
+  scrollbar-width: 0;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .qs-icon {
+    margin-left: 10px;
+  }
   .header,
   .footer {
     width: 100%;

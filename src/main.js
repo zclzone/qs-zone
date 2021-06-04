@@ -21,6 +21,12 @@ Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
 
+//全局自定义指令
+import * as directives from './directives'
+Object.keys(directives).forEach(key => {
+  Vue.directive(key, directives[key])
+})
+
 Vue.config.productionTip = false
 
 new Vue({

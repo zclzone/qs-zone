@@ -69,45 +69,45 @@ export default {
   align-items: center;
   height: 100%;
   background-color: $secondary-color;
+  overflow: hidden;
   #side-menu {
+    position: absolute;
+    left: 0;
     width: 0;
     height: 100%;
-    padding: 20px 0 0;
+    padding: 20px 0;
     background: $secondary-color;
     background: transparent;
     z-index: 99;
     overflow: hidden;
+    flex-shrink: 0;
+  }
+  #content {
+    height: 100%;
+    position: relative;
+    background-color: $front-color;
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    .hamburger {
+      position: absolute;
+      top: 15px;
+      opacity: 0.6;
+      left: 15px;
+    }
   }
   &.menu-active {
     #side-menu {
-      width: 220px;
+      width: 200px;
       overflow: auto;
     }
-  }
-}
-
-#content {
-  height: 100%;
-  position: relative;
-  background-color: $front-color;
-
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  .hamburger {
-    position: absolute;
-    top: 15px;
-    opacity: 0.6;
-    left: 15px;
-  }
-}
-@media screen and (max-width: 992px) {
-  #content {
-    opacity: 0.8;
-  }
-  #side-menu {
-    position: absolute;
-    left: 0;
+    #content {
+      transform: translateX(200px);
+      height: calc(100% - 20px);
+      border-radius: 30px;
+    }
   }
 }
 </style>

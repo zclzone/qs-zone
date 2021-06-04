@@ -43,7 +43,7 @@ export default {
   }
 }
 .footer {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   background-color: transparent;

@@ -57,7 +57,7 @@ export default {
         'MongoDB',
       ],
       author: '张传龙',
-      description: '前端全栈开发者',
+      description: 'web前端开发工程师',
       github: 'https://github.com/zclzone/blog',
       colors: ['#005387'],
       keyword: '',
@@ -190,11 +190,13 @@ export default {
       }
       .btn-search {
         position: absolute;
-        width: 30px;
+        width: 40px;
         height: 100%;
         top: 0;
         right: 0;
         border: none;
+        margin: 0;
+        padding: 0;
         color: $front-color;
         font-size: 18px;
         background: $main-color;

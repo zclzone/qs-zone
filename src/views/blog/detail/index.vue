@@ -5,14 +5,17 @@
         <header class="post-header">
           <h1 class="post-title">{{ post.title }}</h1>
         </header>
-        <section class="markdown-body post-body" v-html="postHtml"></section>
+        <section
+          class="markdown-here-wrapper"
+          v-html="postHtml"
+          v-highlight
+        ></section>
       </article>
     </div>
   </div>
 </template>
 
 <script>
-import { setPageTitle } from '@/utils/page'
 import MarkdownIt from 'markdown-it'
 
 import { getPostById } from '@/api/blog'

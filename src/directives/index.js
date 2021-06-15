@@ -1,5 +1,7 @@
 import { debounce as _debounce, addWaterMarker } from '@/utils'
 
+import hljs from 'highlight.js/lib/common'
+
 /**
  * v-copy
  */
@@ -76,6 +78,15 @@ const waterMarker = {
   }
 }
 
+const highlight = {
+  bind: function (el) {
+    const blocks = el.querySelectorAll('pre code')
+    blocks.forEach((block) => {
+      hljs.highlightElement(block)
+    })
+  }
+}
+
 export {
-  copy, debounce, permission, waterMarker
+  copy, debounce, permission, waterMarker, highlight
 }

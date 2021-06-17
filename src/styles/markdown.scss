@@ -11,6 +11,8 @@
     font-size: 14px;
     font-family: Roboto, 'Courier New', Consolas, Inconsolata, Courier, monospace;
     margin: auto 5px;
+    background: #1e1e1e;
+    color: #dcdcdc;
   }
 
   code {
@@ -21,9 +23,20 @@
   }
 
   pre {
-    font-size: 15px;
-    line-height: 1.4em;
-    display: block !important;
+    overflow: auto;
+    position: relative;
+    line-height: 1.75;
+    box-shadow: 0 0 8px hsl(0deg 0% 43% / 45%);
+    border-radius: 4px;
+    &::before {
+      content: "";
+      display: block;
+      height: 30px;
+      width: 100%;
+      background: url('~@/assets/images/code-icon.png') 10px 10px no-repeat;
+      margin-bottom: -7px;
+      background-size: 40px;
+    }
   }
 
   pre code {

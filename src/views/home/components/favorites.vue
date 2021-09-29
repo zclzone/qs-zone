@@ -64,11 +64,7 @@
         <li class="favorites-item">
           <a
             href="#"
-            @click.prevent="
-              favorite = {}
-              showAdd = true
-            "
-            >+</a
+            @click.prevent="favorite = {}; showAdd = true">+</a
           >
         </li>
         <i class="blank"></i>
@@ -226,10 +222,10 @@ export default {
         $loading.show()
         const res = await getCollectionById({ id })
         $loading.hide()
-        if (res.message === 'OK' && res.collection.content) {
-          localStorage.setItem('favorites', res.collection.content)
-          this.favorites = JSON.parse(res.collection.content)
-        } else {
+        if(res.code === 0 && res.data.content) {
+          localStorage.setItem('favorites', res.data.content)
+          this.favorites = JSON.parse(res.data.content)
+        }else {
           alert(res.message)
         }
       } catch (error) {
@@ -242,8 +238,8 @@ export default {
         $loading.show()
         const res = await getCollectionByUserId()
         $loading.hide()
-        if (res.message === 'OK') {
-          this.favorites = JSON.parse(res.collection.content)
+        if (res.code === 0) {
+          this.favorites = JSON.parse(res.data.content)
           alert('同步成功')
         } else {
           alert(res.message)
@@ -256,10 +252,10 @@ export default {
     async syncToRemote() {
       try {
         $loading.show()
-        const res = await updateCollection({
+        const {message} = await updateCollection({
           content: localStorage.getItem('favorites'),
         })
-        alert(res.message)
+        alert(message)
 
         $loading.hide()
       } catch (error) {

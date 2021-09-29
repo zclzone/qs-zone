@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export const getPosts = (params) => {
   return request({
-    url: '/post',
+    url: '/posts',
     method: 'get',
   })
 }

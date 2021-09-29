@@ -30,8 +30,9 @@ export default {
   methods: {
     async initData() {
       $loading.show()
-      const data = await getPosts()
+      const {data} = await getPosts()
       $loading.hide()
+
       if (!data || !data.length) {
         return
       }

@@ -57,7 +57,7 @@ export default {
       }
       try {
         $loading.show()
-        const res = await login({ name, password: +password })
+        const res = await login({ name, password })
         $loading.hide()
         if (res.code === 0) {
           const token = 'Bearer ' + res.token

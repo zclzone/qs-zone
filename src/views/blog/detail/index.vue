@@ -27,15 +27,15 @@ export default {
       postHtml: '',
     }
   },
-  async mounted() {
-    await this.getPost()
+  mounted() {
+    this.getPost()
   },
   methods: {
     async getPost() {
       $loading.show()
-      const data = await getPostById({ id: this.id })
+      const res = await getPostById({ id: this.id })
       $loading.hide()
-      this.post = data
+      this.post = res.data
       const md = new MarkdownIt()
       this.postHtml = md.render(this.post.content)
     },

@@ -60,7 +60,7 @@ export default {
         const res = await login({ name, password })
         $loading.hide()
         if (res.code === 0) {
-          const token = 'Bearer ' + res.token
+          const token = 'Bearer ' + res.data.token
           setToken(token)
           this.$router.push('/')
         } else {
